@@ -36,7 +36,7 @@ df['Volltext'] = df['Volltext'].str.replace(r"\s+", " ", regex=True).str.strip()
   
 llm = ChatLLM7(
     model="gpt-4.1-nano-2025-04-14",
-    api_key = 'PpdJBM+4g8lR4jSDGP+6kQF4G2oylkHiuUP17fyXQQGhH8zsVAQIfQjONWFhk5rL6vqMlwMOfNRTLHTTijF6MQWCEwcoocLlmJOeMAAD0Rem1GqtXKfgm2JNyVQl',
+    api_key ='3HPJBwVUDKD7kC5vMF8a7fOhF8Ukvs/7Yrh9ilA/IWI3Htw1EnnuDAadV5zrT/+miuruuNvF81zb+/OUwVM6YiEaPAWYM4CFrRQ7a/kVp8RvZLFDhGWPPmzhwhRjJIjO+4KJUEep1S0=',
     temperature=0.0,
     max_tokens=1000,
     stop=None,
