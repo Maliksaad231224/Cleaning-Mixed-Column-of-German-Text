@@ -24,5 +24,5 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run main_0.py
-        run: python -u main_0.py
+      - name: Run missing.py
+        run: python -u missing.py
