@@ -133,7 +133,9 @@ for index, column in df.iterrows():
         metadata = extract_metadata_with_schema(column['Volltext'])
         metadata = json.loads(metadata)['Volltext']
         
-        output = {
+        output = {  
+            "file":"chunk_1",
+            "field_id":index+1,
             "Titel_Autor": column['Titel_Autor'],
             "RASignatur": column['RASignatur'],
             "Volltext": metadata,

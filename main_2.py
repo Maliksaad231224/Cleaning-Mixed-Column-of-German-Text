@@ -134,6 +134,8 @@ for index, column in df.iterrows():
         metadata = json.loads(metadata)['Volltext']
         
         output = {
+            "file":"chunk_2",
+            "field_id":index+1,
             "Titel_Autor": column['Titel_Autor'],
             "RASignatur": column['RASignatur'],
             "Volltext": metadata,
