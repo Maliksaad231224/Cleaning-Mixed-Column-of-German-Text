@@ -139,6 +139,7 @@ for index, column in df.iterrows():
             "Volltext": metadata,
             "Autorenvorname": column['Autorenvorname']
         }
+        sleep(2)
         print(output)
         data_list.append(output)
 
@@ -146,7 +147,7 @@ for index, column in df.iterrows():
         print(f"⚠️ Skipping row {index} due to error: {e}")
         continue   # Skip this row, move to the next
 
-    if index % 10 == 0 and index > 0:
+    if (index % 10 == 0 or index == df.shape[0] - 1) and index > 0:
         try:
             cleaned_data = clean_nans(data_list)
             response = supabase.from_("Voltext").upsert(cleaned_data).execute()

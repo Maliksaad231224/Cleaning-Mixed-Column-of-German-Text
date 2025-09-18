@@ -140,13 +140,14 @@ for index, column in df.iterrows():
             "Autorenvorname": column['Autorenvorname']
         }
         print(output)
+        sleep(2)
         data_list.append(output)
 
     except Exception as e:
         print(f"⚠️ Skipping row {index} due to error: {e}")
         continue   # Skip this row, move to the next
 
-    if index % 10 == 0 and index > 0:
+    if (index % 10 == 0 or index == df.shape[0] - 1) and index > 0:
         try:
             cleaned_data = clean_nans(data_list)
             response = supabase.from_("Voltext").upsert(cleaned_data).execute()
