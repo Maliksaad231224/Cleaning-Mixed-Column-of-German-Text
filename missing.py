@@ -32,7 +32,10 @@ df['Volltext'] = df['Volltext'].str.replace(punctuation_to_remove, '', regex=Tru
 df['Volltext'] = df['Volltext'].str.replace(r"\\", "", regex=True) 
 df['Volltext'] = df['Volltext'].str.replace(r"\\[ntrbfv]", " ", regex=True)
 df['Volltext'] = df['Volltext'].str.replace(r"\s+", " ", regex=True).str.strip()
+df['Volltext'] = df['Volltext'].str.replace(r'\\(?![ntrbfv"\\/])', '', regex=True)
 
+# Collapse spaces
+df['Volltext'] = df['Volltext'].str.replace(r'\s+', ' ', regex=True).str.strip()
   
 llm = ChatLLM7(
     model="gpt-4.1-nano-2025-04-14",
@@ -134,7 +137,7 @@ for index, column in df.iterrows():
         metadata = json.loads(metadata)['Volltext']
         
         output = {  
-            "file":"chunk_1",
+            "file":"missing",
             "field_id":index+1,
             "Titel_Autor": column['Titel_Autor'],
             "RASignatur": column['RASignatur'],
